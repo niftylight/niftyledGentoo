@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="lightweight library to handle preferences for arbitrary (tree) objects using XML"
 HOMEPAGE="http://wiki.niftylight.de/libniftyprefs"
-EGIT_REPO_URI="http://github.com/niftylight/niftyprefs"
+EGIT_REPO_URI="http://github.com/niftylight/niftyprefs.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 

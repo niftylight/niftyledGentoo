@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="niftyled screen capture tool"
 HOMEPAGE="http://wiki.niftylight.de/ledcap"
-EGIT_REPO_URI="http://github.com/niftylight/ledcap"
+EGIT_REPO_URI="http://github.com/niftylight/ledcap.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 

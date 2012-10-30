@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="library designed to provide an abstract interface for LED/lighting hardware to easily control it using pixel data."
 HOMEPAGE="http://wiki.niftylight.de/libniftyled"
-EGIT_REPO_URI="http://github.com/niftylight/niftyled"
+EGIT_REPO_URI="http://github.com/niftylight/niftyled.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 
