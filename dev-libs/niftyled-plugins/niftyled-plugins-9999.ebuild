@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="libniftyled runtime loadabled plugins"
 HOMEPAGE="http://wiki.niftylight.de/Hardware-plugins"
-EGIT_REPO_URI="http://github.com/niftylight/niftyled-plugins.git"
+EGIT_REPO_URI="https://github.com/niftylight/niftyled-plugins.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 

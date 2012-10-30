@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="lightweight & simple library to implement logging/debugging output for new or existing applications"
 HOMEPAGE="http://wiki.niftylight.de/libniftylog"
-EGIT_REPO_URI="http://github.com/niftylight/niftylog.git"
+EGIT_REPO_URI="https://github.com/niftylight/niftylog.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 

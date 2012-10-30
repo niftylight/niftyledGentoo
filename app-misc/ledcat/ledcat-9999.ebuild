@@ -7,7 +7,7 @@ inherit git autotools
 
 DESCRIPTION="niftyled cat tool"
 HOMEPAGE="http://wiki.niftylight.de/ledcat"
-EGIT_REPO_URI="http://github.com/niftylight/ledcat.git"
+EGIT_REPO_URI="https://github.com/niftylight/ledcat.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 
