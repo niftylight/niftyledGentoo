@@ -5,7 +5,7 @@ EAPI=2
 
 inherit git-2 autotools
 
-DESCRIPTION="library designed to provide an abstract interface for LED/lighting hardware to easily control it using pixel data."
+DESCRIPTION="library designed to provide an abstract interface for LED/lighting hardware"
 HOMEPAGE="http://wiki.niftylight.de/libniftyled"
 EGIT_REPO_URI="git://github.com/niftylight/niftyled.git https://github.com/niftylight/niftyled.git"
 #EGIT_COMMIT="master"
@@ -17,9 +17,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="debug"
 
-RDEPEND="sys-libs/glibc
-	dev-libs/libxml2
-	dev-libs/niftylog
+RDEPEND="dev-libs/niftylog
 	dev-libs/niftyprefs
 	media-libs/babl"
 
@@ -39,18 +37,12 @@ src_unpack()
 
 src_configure() 
 {
-	# debugging symbols?
-	if use debug ; then
-		myconf+=" --enable-debug"
-	else
-		myconf+=" --disable-debug"
-	fi
-
-    econf ${myconf}
+    econf \
+        $(use_enable debug)
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
+    emake DESTDIR="${D}" install || die
 
     dodoc NEWS README COPYING AUTHORS ChangeLog
 }

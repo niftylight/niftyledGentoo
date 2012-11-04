@@ -5,7 +5,7 @@ EAPI=2
 
 inherit git-2 autotools
 
-DESCRIPTION="lightweight library to handle preferences for arbitrary (tree) objects using XML"
+DESCRIPTION="lightweight library to handle preferences/configuration files"
 HOMEPAGE="http://wiki.niftylight.de/libniftyprefs"
 EGIT_REPO_URI="git://github.com/niftylight/niftyprefs.git https://github.com/niftylight/niftyprefs.git"
 #EGIT_COMMIT="master"
@@ -17,11 +17,10 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="debug"
 
-RDEPEND="sys-libs/glibc
-		dev-libs/libxml2
-		dev-libs/niftylog"
+RDEPEND="dev-libs/libxml2
+	dev-libs/niftylog"
 DEPEND="${RDEPEND} 
-		virtual/pkgconfig"
+	virtual/pkgconfig"
 
 
 src_prepare()
@@ -36,18 +35,12 @@ src_unpack()
 
 src_configure() 
 {
-	# debugging symbols?
-	if use debug ; then
-		myconf+=" --enable-debug"
-	else
-		myconf+=" --disable-debug"
-	fi
-
-    econf ${myconf}
+    econf \
+        $(use_enable debug)
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
+    emake DESTDIR="${D}" install || die
 
     dodoc NEWS README COPYING AUTHORS ChangeLog
 }

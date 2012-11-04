@@ -15,10 +15,11 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug"
+IUSE="debug imagemagick"
 
 RDEPEND="sys-libs/glibc
-	dev-libs/niftyled"
+	dev-libs/niftyled
+	imagemagick? ( media-gfx/imagemagick )"
 
 DEPEND="${RDEPEND} 
 	virtual/pkgconfig"
@@ -36,18 +37,13 @@ src_unpack()
 
 src_configure() 
 {
-	# debugging symbols?
-	if use debug ; then
-		myconf+=" --enable-debug"
-	else
-		myconf+=" --disable-debug"
-	fi
-
-	econf ${myconf}
+	econf \
+                $(use_enable debug) \
+                $(use_enable imagemagick)
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
+    emake DESTDIR="${D}" install || die
 
     dodoc NEWS README COPYING AUTHORS ChangeLog
 }

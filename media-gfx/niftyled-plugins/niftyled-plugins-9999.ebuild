@@ -1,7 +1,7 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=2
+EAPI=4
 
 inherit git-2 autotools
 
@@ -15,13 +15,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="debug"
+IUSE="debug niftylino arduino"
 
-RDEPEND="sys-libs/glibc
-	dev-libs/niftyled"
+RDEPEND="dev-libs/niftyled"
 
 DEPEND="${RDEPEND} 
 	virtual/pkgconfig"
+
+REQUIRED_USE="
+	niftylino? ( usb )
+	arduino? ( usb )"
+
 
 
 src_prepare()
@@ -36,18 +40,14 @@ src_unpack()
 
 src_configure() 
 {
-	# debugging symbols?
-	if use debug ; then
-		myconf+=" --enable-debug"
-	else
-		myconf+=" --disable-debug"
-	fi
-
-	econf ${myconf}
+	econf \
+                $(use_enable debug) \
+                $(use_enable niftylino niftylino-plugin) \
+                $(use_enable arduino arduino_72xx-plugin)
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
+    emake DESTDIR="${D}" install || die
 
     dodoc NEWS README COPYING AUTHORS ChangeLog
 }
