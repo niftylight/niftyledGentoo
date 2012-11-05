@@ -5,20 +5,21 @@ EAPI=2
 
 inherit git-2 autotools
 
-DESCRIPTION="niftyled cat tool"
-HOMEPAGE="http://wiki.niftylight.de/ledcat"
-EGIT_REPO_URI="git://github.com/niftylight/ledcat.git https://github.com/niftylight/ledcat.git"
+DESCRIPTION="gStreamer plugins for the niftyled suite"
+HOMEPAGE="http://wiki.niftylight.de/gstreamer"
+EGIT_REPO_URI="git://github.com/niftylight/niftyled-gstreamer.git https://github.com/niftylight/niftyled-gstreamer.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86"
 
-IUSE="debug imagemagick"
+IUSE="debug"
 
 RDEPEND="media-gfx/niftyled
-	imagemagick? ( media-gfx/imagemagick )"
+	>=media-libs/gstreamer-0.10.0
+	>=media-libs/gst-plugins-base-0.10.0"
 
 DEPEND="${RDEPEND} 
 	virtual/pkgconfig"
@@ -37,8 +38,7 @@ src_unpack()
 src_configure() 
 {
 	econf \
-                $(use_enable debug) \
-                $(use_enable imagemagick)
+                $(use_enable debug)
 }
 
 src_install() {
