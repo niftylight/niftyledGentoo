@@ -7,9 +7,6 @@
 </maintainer>
 <use>
   <flag name='debug'>Compile for debugging (also modify CFLAGS and FEATURES)</flag>
-  <flag name='usb'>Enable support for USB based hardware</flag>
-  <flag name='niftylino'>Enable support for niftylino USB LED controller</flag>
-  <flag name='arduino'>Enable support for arduino based LED controllers</flag>
 </use>
-<bugs-to>http://github.com/niftylight/niftyled-plugins/issues</bugs-to>
+<bugs-to>http://github.com/niftylight/niftyled/issues</bugs-to>
 </pkgmetadata>
