@@ -5,7 +5,7 @@ EAPI=2
 
 inherit git-2 autotools
 
-DESCRIPTION="gStreamer plugins for the niftyled suite"
+DESCRIPTION="gStreamer plugin to output pixeldata to LEDs using niftyled"
 HOMEPAGE="http://wiki.niftylight.de/gstreamer"
 EGIT_REPO_URI="git://github.com/niftylight/niftyled-gstreamer.git https://github.com/niftylight/niftyled-gstreamer.git"
 #EGIT_COMMIT="master"
@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/niftylight/niftyled-gstreamer.git https://github
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="debug"
 
