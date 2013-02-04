@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE herds SYSTEM "http://www.gentoo.org/dtd/herds.dtd">
+<?xml-stylesheet href="/xsl/herds.xsl" type="text/xsl" ?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl" ?>
+<herds>
+  <herd>
+      <name>niftylight</name>
+      <email>daniel-herd@niftylight.de</email>
+      <description>niftylight gentoo overlay</description>
+      <maintainer>
+          <email>daniel-herd@niftylight.de</email>
+          <name>Daniel Hiepler</name>
+      </maintainer>
+  </herd>
+</herds>
