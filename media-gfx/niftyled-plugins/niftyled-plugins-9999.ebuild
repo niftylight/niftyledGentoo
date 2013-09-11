@@ -6,7 +6,7 @@ EAPI=4
 
 inherit git-2 autotools
 
-DESCRIPTION="libniftyled runtime loadabled plugins"
+DESCRIPTION="libniftyled runtime loadable plugins"
 HOMEPAGE="http://wiki.niftylight.de/Hardware-plugins"
 EGIT_REPO_URI="git://github.com/niftylight/niftyled-plugins.git https://github.com/niftylight/niftyled-plugins.git"
 #EGIT_COMMIT="master"

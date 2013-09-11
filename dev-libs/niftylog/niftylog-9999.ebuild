@@ -6,7 +6,7 @@ EAPI=2
 
 inherit git-2 autotools
 
-DESCRIPTION="lightweight library to implement logging/debugging output for new or existing applications"
+DESCRIPTION="lightweight library to implement logging/debugging output for new or existing applications."
 HOMEPAGE="http://wiki.niftylight.de/libniftylog"
 EGIT_REPO_URI="git://github.com/niftylight/niftylog.git https://github.com/niftylight/niftylog.git"
 #EGIT_COMMIT="master"
