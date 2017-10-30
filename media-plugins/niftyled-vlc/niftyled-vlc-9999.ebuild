@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug"
+IUSE="debug static"
 
 DOCS=( NEWS README.md AUTHORS ChangeLog )
 
@@ -40,11 +40,6 @@ src_unpack()
 src_configure()
 {
 	econf \
-	    $(use_enable debug)
-}
-
-src_install()
-{
-	emake DESTDIR="${D}" install
-	einstalldocs
+	    $(use_enable debug) \
+	    $(use_enable static)
 }

@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug gstreamer vlc"
+IUSE="debug gstreamer static vlc"
 
 DOCS=( NEWS README.md AUTHORS ChangeLog )
 
@@ -47,25 +47,22 @@ src_unpack()
 src_configure()
 {
 	econf \
-	    $(use_enable debug)
+	    $(use_enable debug) \
+	    $(use_enable static)
 }
 
 src_compile()
 {
 	doxygen -u doc/Doxyfile # update the Doxyfile to avoid warings
-	emake
-}
-
-src_install()
-{
-	emake DESTDIR="${D}" install
-	einstalldocs
+	emake || die
 }
 
 pkg_postinst()
 {
-	einfo "Sample configs are in /usr/share/${PN}/examples/"
-	einfo "Copy config to ~/.ledset.xml or use the -c argument"
-	einfo "to select a config. For further information,"
-	einfo "see documentation at http://wiki.niftylight.de/${PN}"
+	echo
+	elog "Sample configs are in /usr/share/${PN}/examples/"
+	elog "Copy config to ~/.ledset.xml or use the -c argument"
+	elog "to select a config. For further information,"
+	elog "see documentation at http://wiki.niftylight.de/${PN}"
+	echo
 }
