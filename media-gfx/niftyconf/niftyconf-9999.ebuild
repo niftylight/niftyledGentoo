@@ -44,8 +44,3 @@ src_configure()
 	econf \
 		$(use_enable debug)
 }
-
-src_install() {
-	emake DESTDIR="${D}" install
-	einstalldocs
-}
