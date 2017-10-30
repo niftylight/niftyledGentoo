@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="debug lpd8806-spi niftylino arduino usb"
+IUSE="arduino debug lpd8806-spi niftylino static usb"
 
 DOCS=( NEWS README.md AUTHORS ChangeLog )
 
@@ -45,11 +45,6 @@ src_configure()
 		$(use_enable debug) \
 		$(use_enable niftylino plugin-niftylino) \
 		$(use_enable arduino plugin-arduino-72xx) \
-		$(use_enable lpd8806-spi plugin-lpd8806-spi)
-}
-
-src_install()
-{
-	emake DESTDIR="${D}" install
-	einstalldocs
+		$(use_enable lpd8806-spi plugin-lpd8806-spi) \
+		$(use_enable static)
 }
