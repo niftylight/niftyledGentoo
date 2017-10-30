@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=6
 
-inherit git-2 autotools
+inherit git-r3 autotools
 
 DESCRIPTION="niftyled setup configuration GUI"
 HOMEPAGE="http://wiki.niftylight.de/niftyconf"
-EGIT_REPO_URI="git://github.com/niftylight/niftyconf.git https://github.com/niftylight/niftyconf.git"
+# removed git:// style URI due to security issues
+EGIT_REPO_URI="https://github.com/niftylight/niftyconf.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 
@@ -18,8 +18,10 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="debug"
 
+DOCS=( NEWS README.md AUTHORS ChangeLog )
+
 RDEPEND="media-gfx/niftyled
-	 x11-libs/gtk+
+	 x11-libs/gtk+:2
 	 x11-libs/cairo
 	 dev-libs/glib"
 
@@ -28,22 +30,22 @@ DEPEND="${RDEPEND}
 
 src_prepare()
 {
+	default
 	eautoreconf
 }
 
 src_unpack()
 {
-	git-2_src_unpack
+	git-r3_src_unpack
 }
 
 src_configure()
 {
 	econf \
-                $(use_enable debug)
+		$(use_enable debug)
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-
-	dodoc NEWS README AUTHORS ChangeLog
+	emake DESTDIR="${D}" install
+	einstalldocs
 }
