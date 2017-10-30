@@ -44,12 +44,8 @@ src_configure()
 	    $(use_enable debug)
 }
 
-src_compile() {
+src_compile()
+{
 	doxygen -u doc/Doxyfile # update Doxyfile to avoid warnings
-	emake
-}
-
-src_install() {
-	emake DESTDIR="${D}" install
-	einstalldocs
+	emake || die
 }
