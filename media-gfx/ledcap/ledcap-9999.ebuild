@@ -1,14 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-EAPI=4
+EAPI=6
 
-inherit git-2 autotools
+inherit git-r3 autotools
 
 DESCRIPTION="niftyled screen capture tool"
 HOMEPAGE="http://wiki.niftylight.de/ledcap"
-EGIT_REPO_URI="git://github.com/niftylight/ledcap.git https://github.com/niftylight/ledcap.git"
+# removed git:// style URI due to security issues
+EGIT_REPO_URI="https://github.com/niftylight/ledcap.git"
 #EGIT_COMMIT="master"
 #EGIT_BRANCH="${EGIT_COMMIT}"
 
@@ -17,6 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="debug imlib X"
+
+DOCS=( NEWS README.md AUTHORS ChangeLog )
 
 RDEPEND="media-gfx/niftyled
 	imlib? ( media-libs/imlib2 )
@@ -29,12 +31,13 @@ REQUIRED_USE="|| ( X imlib )"
 
 src_prepare()
 {
+	default
 	eautoreconf
 }
 
 src_unpack()
 {
-	git-2_src_unpack
+	git-r3_src_unpack
 }
 
 src_configure()
@@ -45,20 +48,13 @@ src_configure()
 	    $(use_enable X x-capture)
 }
 
-src_install()
-{
-	emake DESTDIR="${D}" install || die
-
-	dodoc NEWS README AUTHORS ChangeLog
-}
-
 pkg_postinst()
 {
-        echo
-        elog "Sample configs come with libniftyled. Find them in"
-        elog "/usr/share/niftyled/examples/"
-        elog "Copy config to ~/.ledcap.xml or use the -c argument"
-        elog "to select a config. For further information,"
-        elog "see documentation at http://wiki.niftylight.de/${PN}"
-        echo
+	echo
+	elog "Sample configs come with libniftyled. Find them in"
+	elog "/usr/share/niftyled/examples/"
+	elog "Copy config to ~/.ledcap.xml or use the -c argument"
+	elog "to select a config. For further information,"
+	elog "see documentation at http://wiki.niftylight.de/${PN}"
+	echo
 }
