@@ -5,7 +5,7 @@ EAPI=6
 
 inherit git-r3 autotools
 
-DESCRIPTION="lightweight library to implement logging/debugging output for new or existing applications."
+DESCRIPTION="lightweight logging/debugging output lib for new or existing applications."
 HOMEPAGE="http://wiki.niftylight.de/libniftylog"
 # removed git:// style URI due to security warning
 EGIT_REPO_URI="https://github.com/niftylight/niftylog.git"
