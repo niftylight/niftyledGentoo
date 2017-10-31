@@ -25,7 +25,6 @@ RDEPEND="dev-libs/libxml2
 # we unconditionally build the documentation and don't have configure option
 # for it, so we need doxygen installed
 DEPEND="${RDEPEND}
-	>=app-doc/doxygen-1.8.13-r1
 	virtual/pkgconfig"
 
 src_prepare()
@@ -47,6 +46,5 @@ src_configure()
 }
 
 src_compile() {
-	doxygen -u doc/Doxyfile # update the Doxyfile to avoid warnings
-	emake || die
+	emake
 }
