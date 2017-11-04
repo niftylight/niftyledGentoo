@@ -25,7 +25,7 @@ PDEPEND="gstreamer? ( media-plugins/gst-plugins-niftyled )
 
 RDEPEND="dev-libs/niftylog
 	dev-libs/niftyprefs
-	media-libs/babl"
+	=media-libs/babl-9999"
 
 # we unconditionally build the documentation and don't have a configure option for it, so
 # we need to ensure doxygen is installed
