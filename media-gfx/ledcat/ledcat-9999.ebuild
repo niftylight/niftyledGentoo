@@ -21,7 +21,7 @@ IUSE="debug imagemagick"
 DOCS=( NEWS README.md AUTHORS ChangeLog )
 
 RDEPEND="media-gfx/niftyled
-	imagemagick? ( media-gfx/imagemagick )"
+	imagemagick? ( >=media-gfx/imagemagick-7.0.7.14 )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
